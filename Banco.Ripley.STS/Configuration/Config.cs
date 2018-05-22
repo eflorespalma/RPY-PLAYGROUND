@@ -16,7 +16,6 @@ namespace Banco.Ripley.STS.Configuration
                 new IdentityResources.Profile(),
             };
         }
-
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource>

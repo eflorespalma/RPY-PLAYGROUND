@@ -18,7 +18,7 @@ namespace Banco.Ripley.STS
         {
             services.AddMvc();
 
-            const string connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;database=IdentityServer4.Quickstart.EntityFramework-2.0.0;trusted_connection=yes;";
+            const string connectionString = @"Data Source=.;database=seguridad-banco-ripley;User Id=sa;Password=p@ssw0rd.;trusted_connection=yes;";
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services.AddIdentityServer()
