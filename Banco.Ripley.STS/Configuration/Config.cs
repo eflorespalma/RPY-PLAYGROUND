@@ -68,7 +68,6 @@ namespace Banco.Ripley.STS.Configuration
                     SubjectId = "1",
                     Username = "eflorespalma",
                     Password = "123456",
-
                     Claims = new List<Claim>
                     {
                         new Claim("name", "Edgar Flores P."),
@@ -80,12 +79,11 @@ namespace Banco.Ripley.STS.Configuration
                     SubjectId = "2",
                     Username = "rhuanca",
                     Password = "123456",
-
                     Claims = new List<Claim>
                     {
                         new Claim("name", "Roberto Huanca"),
                         new Claim("website", "https://bob.com"),
-                        new Claim("genero", "male")
+                        //new Claim("genero", "male")
                     }
                 }
             };

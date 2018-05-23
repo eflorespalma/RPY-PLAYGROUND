@@ -76,7 +76,6 @@ namespace Banco.Ripley.STS
                   {
                       ValidateIssuer = false
                   };
-                  //options.ClaimActions.Remove("name");
                   options.GetClaimsFromUserInfoEndpoint = true;
               });
         }
