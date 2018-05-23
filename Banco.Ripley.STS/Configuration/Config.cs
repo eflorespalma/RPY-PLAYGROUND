@@ -84,7 +84,8 @@ namespace Banco.Ripley.STS.Configuration
                     Claims = new List<Claim>
                     {
                         new Claim("name", "Roberto Huanca"),
-                        new Claim("website", "https://bob.com")
+                        new Claim("website", "https://bob.com"),
+                        new Claim("genero", "male")
                     }
                 }
             };

@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco.Ripley.STS", "Banco.Ripley.STS\Banco.Ripley.STS.csproj", "{28E2B753-4665-43B7-9C63-EB2D19FDFC92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banco.Ripley.STS", "Banco.Ripley.STS\Banco.Ripley.STS.csproj", "{28E2B753-4665-43B7-9C63-EB2D19FDFC92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco.Ripley.Web", "Banco.Ripley.Web\Banco.Ripley.Web.csproj", "{C07D536B-4461-438F-AFC4-6FE6C0A95722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banco.Ripley.Web", "Banco.Ripley.Web\Banco.Ripley.Web.csproj", "{C07D536B-4461-438F-AFC4-6FE6C0A95722}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco.Ripley.API", "Banco.Ripley.API\Banco.Ripley.API.csproj", "{4C23F785-239F-49EE-B2CB-66AEBDC9CEDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banco.Ripley.API", "Banco.Ripley.API\Banco.Ripley.API.csproj", "{4C23F785-239F-49EE-B2CB-66AEBDC9CEDB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{97A3F0C1-29FB-4B4E-A227-7790C33505FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{E29DDAA6-B01F-4286-9C00-C4CD359836BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4.AccessTokenValidation", "..\..\..\Desktop\IdentityServer4.AccessTokenValidation-dev\src\IdentityServer4.AccessTokenValidation\IdentityServer4.AccessTokenValidation.csproj", "{32BD8B62-D773-4524-94C5-C20D812866E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityModel.AspNetCore.OAuth2Introspection", "..\..\..\Desktop\IdentityModel.AspNetCore.OAuth2Introspection-dev\src\IdentityModel.AspNetCore.OAuth2Introspection\IdentityModel.AspNetCore.OAuth2Introspection.csproj", "{850EE593-52EB-48F5-AEF4-B9E335B28EC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +35,22 @@ Global
 		{4C23F785-239F-49EE-B2CB-66AEBDC9CEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C23F785-239F-49EE-B2CB-66AEBDC9CEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C23F785-239F-49EE-B2CB-66AEBDC9CEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32BD8B62-D773-4524-94C5-C20D812866E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32BD8B62-D773-4524-94C5-C20D812866E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32BD8B62-D773-4524-94C5-C20D812866E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32BD8B62-D773-4524-94C5-C20D812866E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{850EE593-52EB-48F5-AEF4-B9E335B28EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{850EE593-52EB-48F5-AEF4-B9E335B28EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{850EE593-52EB-48F5-AEF4-B9E335B28EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{850EE593-52EB-48F5-AEF4-B9E335B28EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C07D536B-4461-438F-AFC4-6FE6C0A95722} = {97A3F0C1-29FB-4B4E-A227-7790C33505FA}
+		{32BD8B62-D773-4524-94C5-C20D812866E0} = {E29DDAA6-B01F-4286-9C00-C4CD359836BD}
+		{850EE593-52EB-48F5-AEF4-B9E335B28EC6} = {E29DDAA6-B01F-4286-9C00-C4CD359836BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {313518F5-1684-43CF-9931-33DA6EE77772}

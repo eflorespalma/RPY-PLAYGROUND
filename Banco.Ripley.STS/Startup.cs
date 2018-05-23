@@ -1,10 +1,12 @@
 ﻿using Banco.Ripley.STS.Configuration;
+using Banco.Ripley.STS.Infrastructure.Extensions;
 using IdentityServer4;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Linq;
@@ -14,6 +16,17 @@ namespace Banco.Ripley.STS
 {
     public class Startup
     {
+        public IConfiguration _configuration { get; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                    .SetBasePath(env.ContentRootPath)
+                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                    .AddEnvironmentVariables();
+            _configuration = builder.Build();
+        }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -44,27 +57,28 @@ namespace Banco.Ripley.STS
                 });
 
             services.AddAuthentication()
-                .AddGoogle("Google", options =>
-                {
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+              .AddGoogle("Google", options =>
+              {
+                  options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    options.ClientId = "434483408261-55tc8n0cs4ff1fe21ea8df2o443v2iuc.apps.googleusercontent.com";
-                    options.ClientSecret = "3gcoTrEDPPJ0ukn_aYYT6PWo";
-                })
-                .AddOpenIdConnect("oidc", "OpenID Connect", options =>
-                {
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-                    options.SignOutScheme = IdentityServerConstants.SignoutScheme;
-
-                    options.Authority = "https://demo.identityserver.io/";
-                    options.ClientId = "implicit";
-
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        NameClaimType = "name",
-                        RoleClaimType = "role"
-                    };
-                });
+                  options.ClientId = "434483408261-55tc8n0cs4ff1fe21ea8df2o443v2iuc.apps.googleusercontent.com";
+                  options.ClientSecret = "3gcoTrEDPPJ0ukn_aYYT6PWo";
+              })
+              .AddOpenIdConnect("AAD", "Azure Active Directory", options =>
+              {
+                  options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                  options.SignOutScheme = IdentityServerConstants.SignoutScheme;
+                  options.Authority = "https://login.microsoftonline.com/common";
+                  options.ClientId = "66952392-8ddb-4383-a9e1-b7b02314f7a5";
+                  options.Scope.Add("openid");
+                  options.Scope.Add("profile");
+                  options.TokenValidationParameters = new TokenValidationParameters
+                  {
+                      ValidateIssuer = false
+                  };
+                  //options.ClaimActions.Remove("name");
+                  options.GetClaimsFromUserInfoEndpoint = true;
+              });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
